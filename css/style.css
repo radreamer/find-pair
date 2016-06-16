@@ -1,0 +1,89 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Arial', sans-serif;
+	font-size: 16px;
+	color: #222;
+}
+
+*:focus {
+	outline: none;
+}
+
+h1 {
+	font-family: 'Poiret One', cursive;
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+section {
+	position: absolute;
+	left: calc(50% - 250px);
+	top: calc(50% - 250px);
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	width: 500px;
+	height: 500px;
+	border: 1px solid #eee;
+	border-radius: 5px;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.tile {
+	width: 100px;
+	height: 100px;
+	background-color: #ccc;
+	border: 0;
+	border-radius: 5px;
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+	transition: background-color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+.tile:hover {
+	background-color: #c3c3c3;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.back {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 998;
+}
+
+.modal {
+	position: fixed;
+	width: 400px;
+	left: calc(50% - 200px);
+	height: 200px;
+	top: calc(50% - 100px);
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+	text-align: center;
+	z-index:999;
+	padding-top: 40px;
+    box-sizing: border-box;
+}
+
+.modal > button {
+	font-family: 'Poiret One', cursive;
+    border: 1px solid #222;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: transparent;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    transition: box-shadow .3s ease-in-out;
+}
+
+.modal > button:hover {
+	color: #fff;
+	background-color: #222;
+	box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
