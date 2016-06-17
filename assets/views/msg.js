@@ -6,7 +6,8 @@ fp.MessageView = Backbone.View.extend({
 	template: _.template( $('#msg-tpl').html() ),
 
 	events: {
-		'click button': 'startGame'
+		'click #new-game': 'startGame',
+		'click #github': 'goToGithub',
 	},
 
 	initialize: function() {
@@ -22,5 +23,9 @@ fp.MessageView = Backbone.View.extend({
 		e.preventDefault();
 		this.remove();
 		var newGame = new fp.TilesView(fp.collection);
+	},
+
+	goToGithub: function() {
+		window.location.href = 'https://github.com/radreamer/find-pair';
 	}
 });

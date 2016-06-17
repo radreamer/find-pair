@@ -10,6 +10,11 @@ body {
 	outline: none;
 }
 
+header {
+	position: fixed;
+    left: calc(50% - 130px);
+}
+
 h1 {
 	font-family: 'Poiret One', cursive;
 	text-align: center;
@@ -68,6 +73,10 @@ section {
 	z-index:999;
 	padding-top: 40px;
     box-sizing: border-box;
+}
+
+.modal> p {
+	font-size: 20px;
 }
 
 .modal > button {
