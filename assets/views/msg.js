@@ -16,13 +16,14 @@ fp.MessageView = Backbone.View.extend({
 
 	render: function() {
 		this.$el.html(this.template);
-		$('html').append(this.$el);
+		$('body').append(this.$el);
 	},
 
 	startGame: function(e) {
 		e.preventDefault();
 		this.remove();
-		var newGame = new fp.TilesView(fp.collection);
+		fp.update();
+		new fp.TilesView();
 	},
 
 	goToGithub: function() {

@@ -3,8 +3,8 @@ var fp = fp || {};
 fp.TilesView = Backbone.View.extend({
 	tagName: 'section',
 
-	initialize: function(collection) {
-		this.collection = collection;
+	initialize: function(update) {
+		this.collection = new fp.Tiles(fp.list);
 		this.render();
 	},
 
@@ -14,6 +14,6 @@ fp.TilesView = Backbone.View.extend({
 	},
 
 	renderOne: function(model) {
-		var tile = new fp.TileView(model);
+		new fp.TileView(model);
 	}
 })

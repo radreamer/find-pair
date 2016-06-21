@@ -18,9 +18,8 @@ fp.TileView = Backbone.View.extend({
 	},
 
 	showBack: function(e) {
-
+		e.target.style.backgroundColor = this.attributes.color;
 		if (fp.currentColor === this.attributes.color) {
-			e.target.style.backgroundColor = this.attributes.color;
 			fp.currentColor = '';
 
 		} else {
@@ -28,35 +27,32 @@ fp.TileView = Backbone.View.extend({
 			if (fp.currentColor === '') {
 				fp.currentId = this.el.id;
 				fp.currentColor = this.attributes.color;
-				e.target.style.backgroundColor = this.attributes.color;
 			} else {
 				fp.currentColor = '';
-				e.target.style.backgroundColor = this.attributes.color;
 				setTimeout(this.closeAll, 500);
 			}
 		}
-
 		this.checkEnd();
 	},
 
 	closeAll: function() {
-		var newGame = new fp.TilesView(fp.collection);
+		new fp.TilesView();
 	},
 
 	checkEnd: function() {
-		var arr = document.querySelectorAll('.tile'),
-			flag = 0;
-		_.each(arr, function(el) {
-			if (el.style.backgroundColor === '') {
-				flag++;
-			}
-		})
-		if (flag === 0) {
+		var tiles = document.querySelectorAll('.tile'),
+			allOpened;
+
+		allOpened = _.every(tiles, function(el) {
+			return el.style.backgroundColor !== '';
+		});
+
+		if (allOpened ) {
 			this.end();
 		}
 	},
 
 	end: function() {
-		var endMessage = new fp.MessageView();
+		new fp.MessageView();
 	}
 });
